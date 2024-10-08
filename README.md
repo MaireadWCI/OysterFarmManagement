@@ -30,3 +30,16 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 ---
 
 Happy coding!
+
+
+project 3 template added 
+gspread 
+auth
+sheets
+added worksheet 
+gitnore
+requirements
+
+
+![Lucidchart Diagram](/flowchart.png)
+
