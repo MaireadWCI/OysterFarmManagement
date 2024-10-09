@@ -1,14 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
 ## Creating the Heroku app
 
@@ -40,6 +29,42 @@ added worksheet
 gitnore
 requirements
 
+#Oyster Farm Management process App
 
-![Lucidchart Diagram](/flowchart.png)
 
+
+This is a Python App for an Oyster Farm. It is designed to accompany a website for an Oyster farm business. The App is intended for the Business owner  be to able to track rows of trestles, monitor the amount, type, when and where the bags of oysters are places so based on different variables will be ready in a certain time. 
+
+#User Experience Design
+
+## User Stories
+As a user of this App:
+* I would like to add data to a spreadsheet to record what has been laid. 
+* I would like to ensure I have entered the all nessesary data by confirmation. 
+* I would like to be able to retrieve data from my spreadsheet.
+* I would like to be able to enter the date orders are due
+* I would like to get return data on what rows to harvest along with their corresponding dates
+* I would like to get the return dates to be all within the same month as date I enter. 
+
+## Colour Scheme
+<p>A combination of colours were chosen to represent the feel of the ocean and remain on theme with the brands identity.</p>
+
+![Color scheme](./assets/images/readme/color-theme.png)
+
+![Lucidchart Diagram](/idsflowchart_2.png)
+
+# Features
+### Welcome Message: 
+ Display a welcome message upon opening.
+### Menu Options:
+ Three main options - Data Entry and Orders or Exit application. 
+### Data Entry: 
+Input details about oyster bags.
+### Data validation:
+Functions to validate the format of dates and other inputs before logging them to spreadsheet. 
+### Orders: 
+Retrieve information about ready oysters based on user input.
+### Google Sheets Integration: 
+Connects to Google Sheets using gspread and oauth2client.
+### Console Interaction: 
+The application interacts with the user through standard input and output in the terminal.
