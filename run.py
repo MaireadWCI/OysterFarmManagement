@@ -31,6 +31,23 @@ def welcome ():
     print("Welcome to your Oyster Farm Management system")
     main_menu()
 
+def main_menu():  #While statements for menu choices
+    while True:
+        print("\nMenu Options:")
+        print("1. Data Entry")
+        print("2. Orders")
+        print("3. Exit")
+        choice = input("Select an option (1-3): ")
+        
+        if choice == '1':
+            data_entry()
+        elif choice == '2':
+            orders()
+        elif choice == '3':
+            print ("You are no exiting the App. ")
+
+
+
 
 #data = entry.get_all_values() #from love sandwiches 
 
