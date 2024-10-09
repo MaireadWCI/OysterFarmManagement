@@ -49,7 +49,7 @@ As a user of this App:
 ## Colour Scheme
 <p>A combination of colours were chosen to represent the feel of the ocean and remain on theme with the brands identity.</p>
 
-![Color scheme](./assets/images/readme/color-theme.png)
+![Color scheme](./oysterfarm.py/assets/idsflowchart_2.png)
 
 ![Lucidchart Diagram](/idsflowchart_2.png)
 
