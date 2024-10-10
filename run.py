@@ -44,8 +44,21 @@ def main_menu():  #While statements for menu choices
         elif choice == '2':
             orders()
         elif choice == '3':
-            print ("You are no exiting the App. ")
+            print ("You are now exiting the App. ")
+            break
 
+def data_entry():   #data entry input field with format examples
+    while True:
+        date = input("Enter date (YYYY-MMMM-DD)")
+        row = input("Enter row:")
+        oyster_type = input("Enter type (seed or half-grown)")
+        amount = input("Enter number of bags")
+
+        if validate_data(date, row, pyster_type, amount):
+            data_entry_sheet.append_row([dare, row, oyster_type, amount])
+            print("Data has been logged successfully.")
+        else:
+            print("Incorrect data format entered. Please try again")
 
 
 
