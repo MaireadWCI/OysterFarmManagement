@@ -60,6 +60,26 @@ def data_entry():   #data entry input field with format examples
         else:
             print("Incorrect data format entered. Please try again")
 
+def orders():  #define orders section
+
+    while True:  #exception handling
+        required_date - input("Enter the requited date (YYY-MM-DD):")
+
+        if validate_date(required_date): #data validation 
+            required_date_dt = datetime.strptime(required_date, '%Y-%M-%D' )
+            start_date = required_date_dt - timedelta(days=15) #to retieve 15 days on either side of date also 
+            end_date = required_date_dt +timedelta(days=15)
+
+            ready_oysters = calculated_yield_sheet.get_all_records()
+            print("\nReady Oysters within 15 days of the date entered") #
+            for record in ready_oysters:
+                record_date = datetime.strptime(record['Date Ready'], '%Y-%M-%D')
+                if start_date <= record_date <= end_date:
+                    print(f"Row: {record['Row']} Date Ready:
+                    {record['Date Ready']}")
+            break
+        else: 
+            print("incorrect date format entered. Please try again")
 
 
 #data = entry.get_all_values() #from love sandwiches 
