@@ -32,10 +32,11 @@ requirements
 #Oyster Farm Management process App
 
 
-
 This is a Python App for an Oyster Farm. It is designed to accompany a website for an Oyster farm business. The App is intended for the Business owner  be to able to track rows of trestles, monitor the amount, type, when and where the bags of oysters are places so based on different variables will be ready in a certain time. 
 
-#User Experience Design
+## User Experience Design
+
+### Project Goals
 
 ## User Stories
 As a user of this App:
@@ -48,8 +49,15 @@ As a user of this App:
 
 ## Colour Scheme
 <p>A combination of colours were chosen to represent the feel of the ocean and remain on theme with the brands identity.</p>
+//https://pypi.org/project/colorama/  used to apply color to the terminal text, to make it easier to read.  Here are the colors being used: and by what feature //
 
 ![Color scheme](./oysterfarm.py/assets/idsflowchart_2.png)
+
+### Data Model
+
+### Flow Chart
+
+Designed in Lucid charts, to give deminstrate the process. 
 
 ![Lucidchart Diagram](/idsflowchart_2.png)
 
@@ -68,3 +76,36 @@ Retrieve information about ready oysters based on user input.
 Connects to Google Sheets using gspread and oauth2client.
 ### Console Interaction: 
 The application interacts with the user through standard input and output in the terminal.
+### Return loop
+Allows user to clear and enter new data or return to main menu or exit app
+
+
+
+# Technologies Used
+
+## Languages
+
+*Python
+
+## Frameworks, Libraries and Programs Used
+* [GitPod](https://gitpod.io/) was used for writing code, committing, and then pushing to GitHub.
+
+* [GitHub](https://github.com/) was used to store the project after pushing.
+
+* [Heroku](https://id.heroku.com/) was used to deploy the application.
+
+* [PEP8 online check](http://pep8online.com/) was used to validate the Python code.
+
+
+## Testing
+
+### Testing User Stories
+
+
+
+
+using datetime in python :  https://www.dataquest.io/blog/python-datetime/
+
+spreadsheets and pyton:https://realpython.com/openpyxl-excel-spreadsheets-python/
+
+### Code Validation
