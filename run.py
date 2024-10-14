@@ -49,10 +49,10 @@ def main_menu():  #While statements for menu choices
 
 def data_entry():   #data entry input field with format examples
     while True:
-        date = input("Enter date (YYYY-MMMM-DD)")
-        row = input("Enter row:")
-        oyster_type = input("Enter type (seed or half-grown)")
-        amount = input("Enter number of bags")
+        date = input("Enter date (YYYY-MMMM-DD)\n")
+        row = input("Enter row:\n")
+        oyster_type = input("Enter type (seed or half-grown)\n")
+        amount = input("Enter number of bags\n")
 
         if validate_data(date, row, pyster_type, amount):
             data_entry_sheet.append_row([dare, row, oyster_type, amount])
