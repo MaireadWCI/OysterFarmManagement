@@ -71,12 +71,11 @@ def orders():  #define orders section
             end_date = required_date_dt +timedelta(days=15)
 
             ready_oysters = calculated_yield_sheet.get_all_records()
-            print("\nReady Oysters within 15 days of the date entered") #
+            print("\nReady Oysters within 15 days of the date entered")
             for record in ready_oysters:
-                record_date = datetime.strptime(record['Date Ready'], '%Y-%M-%D')
+                record_date = datetime.strptime(record['Date Ready'], '%Y-%m-%d')
                 if start_date <= record_date <= end_date:
-                    print(f"Row: {record['Row']} Date Ready:
-                    {record['Date Ready']}")
+                    print(f"Row: {record['Row']} Date Ready:{record['Date Ready']}")
             break
         else: 
             print("incorrect date format entered. Please try again")
