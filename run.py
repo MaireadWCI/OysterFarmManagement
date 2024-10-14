@@ -80,7 +80,4 @@ def orders():  #define orders section
         else: 
             print("incorrect date format entered. Please try again")
 
-
-#data = entry.get_all_values() #from love sandwiches 
-
-#print(data) # from love sandwiches 
+welcome()
