@@ -49,7 +49,7 @@ def main_menu():  #While statements for menu choices
 
 def data_entry():   #data entry input field with format examples
     while True:
-        date = input("Enter date (YYYY-MMMM-DD)\n")
+        date = input("Enter date (YYYY-MM-DD)\n")
         row = input("Enter row:\n")
         oyster_type = input("Enter type (seed or half-grown)\n")
         amount = input("Enter number of bags\n")
