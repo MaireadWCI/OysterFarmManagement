@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime, timedelta #this will calculate a date range 
+import re #provides support for working with regular expressions ie search, manipulate and validate. 
 
 #Google Sheets set up
 SCOPE = [
@@ -26,6 +27,29 @@ except gspread.exceptions.SpreadsheetNotFound:
 except Exception as e:
     print(f"An unexpected error occurred: {e}")    
 
+#validation of data function
+def validate_data(date, row, oyster_type, amount):
+    #validate date
+    try:
+        datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            print("Invalid date format. Please use YYYY-MM-DD")
+            return False
+
+    #Validate row
+
+
+    #Validate oyster type
+    if oyster_type not in ['seed', 'half-grown']:
+        print("Invalid oyster type. Please enter 'seed' or 'half-grown'.")
+        return False
+
+    #Validate amount to positive intreger
+    if not amount.isdigit() or int(amount) <= 0:
+        print("Invalid amount. Please enter a positive number.")
+        return False
+
+
 #welcome page on initial start up 
 def welcome ():
     print("Welcome to your Oyster Farm Management system")
@@ -50,15 +74,16 @@ def main_menu():  #While statements for menu choices
 def data_entry():   #data entry input field with format examples
     while True:
         date = input("Enter date: (YYYY-MM-DD)\n")
-        row = input("Enter row: (ie C04\n")
+        row = input("Enter row: (ie C04)\n")
         oyster_type = input("Enter type (seed or half-grown)\n")
         amount = input("Enter number of bags\n")
 
-        if validate_data(date, row, pyster_type, amount):
+        if validate_data(date, row, oyster_type, amount):
             data_entry_sheet.append_row([dare, row, oyster_type, amount])
             print("Data has been logged successfully.")
         else:
-            print("Incorrect data format entered. Please try again")
+            print("Incorrect data format entered. Please try again using this format yyyy-mm-dd")
+            
 
 def orders():  #define orders section
 
