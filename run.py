@@ -93,7 +93,8 @@ def orders():  #define orders section
 
        # if validate_date(required_date): #data validation 
        
-        try required_date_dt = datetime.strptime(required_date, '%Y-%M-%D' )
+        try:
+            required_date_dt = datetime.strptime(required_date, '%Y-%M-%D' )
             start_date = required_date_dt - timedelta(days=15) #to retieve 15 days on either side of date also 
             end_date = required_date_dt +timedelta(days=15)
 
