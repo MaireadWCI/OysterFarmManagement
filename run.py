@@ -89,7 +89,7 @@ def data_entry():   #data entry input field with format examples
 def orders():  #define orders section
 
     while True:  #exception handling
-        required_date - input("Enter the requited date (YYY-MM-DD):")
+        required_date = input("Enter the requited date (YYY-MM-DD):")
 
         if validate_date(required_date): #data validation 
             required_date_dt = datetime.strptime(required_date, '%Y-%M-%D' )
