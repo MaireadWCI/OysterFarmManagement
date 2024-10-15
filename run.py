@@ -27,8 +27,8 @@ except gspread.exceptions.SpreadsheetNotFound:
 except Exception as e:
     print(f"An unexpected error occurred: {e}")    
 
-#validation of data function
 def validate_data(date, row, oyster_type, amount):
+    """method to validate date, row , oyster type, and amount"""
     #validate date
     try:
         datetime.strptime(date, '%Y-%m-%d')
@@ -48,6 +48,7 @@ def validate_data(date, row, oyster_type, amount):
     if not amount.isdigit() or int(amount) <= 0:
         print("Invalid amount. Please enter a positive number.")
         return False
+    return True
 
 
 #welcome page on initial start up 
@@ -82,8 +83,7 @@ def data_entry():   #data entry input field with format examples
             data_entry_sheet.append_row([date, row, oyster_type, amount])
             print("Data has been logged successfully.")
             break #loops ends after successful entry
-        else:
-            print("Incorrect data format entered. Please try again using this format yyyy-mm-dd")
+       
             
 
 def orders():  #define orders section
@@ -94,7 +94,7 @@ def orders():  #define orders section
        # if validate_date(required_date): #data validation 
        
         try:
-            required_date_dt = datetime.strptime(required_date, '%Y-%M-%D' )
+            required_date_dt = datetime.strptime(required_date, '%Y-%m-%d' )
             start_date = required_date_dt - timedelta(days=15) #to retieve 15 days on either side of date also 
             end_date = required_date_dt +timedelta(days=15)
 
@@ -105,7 +105,8 @@ def orders():  #define orders section
                 if start_date <= record_date <= end_date:
                     print(f"Row: {record['Row']} Date Ready:{record['Date Ready']}")
             break #ends loop after order is processed. 
-        else: 
+        except Exception as ex: 
             print("incorrect date format entered. Please try again")
+            print(ex) #remove later
 #start application
 welcome()
