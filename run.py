@@ -32,9 +32,9 @@ def validate_data(date, row, oyster_type, amount):
     #validate date
     try:
         datetime.strptime(date, '%Y-%m-%d')
-        except ValueError:
-            print("Invalid date format. Please use YYYY-MM-DD")
-            return False
+    except ValueError:
+        print("Invalid date format. Please use YYYY-MM-DD")
+        return False
 
     #Validate row
 
