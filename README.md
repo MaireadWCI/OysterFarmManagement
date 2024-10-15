@@ -97,6 +97,9 @@ Allows user to clear and enter new data or return to main menu or exit app
 * [PEP8 online check](http://pep8online.com/) was used to validate the Python code.
 
 
+https://www.w3schools.com/python/python_try_except.asp
+
+
 ## Testing
 
 ### Testing User Stories
@@ -110,3 +113,8 @@ spreadsheets and pyton:https://realpython.com/openpyxl-excel-spreadsheets-python
 
 ### Code Validation
 https://pep8ci.herokuapp.com/#
+
+
+add pics here 
+
+https://www.diffchecker.com/
