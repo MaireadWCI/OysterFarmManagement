@@ -79,8 +79,9 @@ def data_entry():   #data entry input field with format examples
         amount = input("Enter number of bags\n")
 
         if validate_data(date, row, oyster_type, amount):
-            data_entry_sheet.append_row([dare, row, oyster_type, amount])
+            data_entry_sheet.append_row([date, row, oyster_type, amount])
             print("Data has been logged successfully.")
+            break #loops ends after successful entry
         else:
             print("Incorrect data format entered. Please try again using this format yyyy-mm-dd")
             
