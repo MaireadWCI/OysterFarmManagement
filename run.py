@@ -87,7 +87,7 @@ def main_menu():  # While statements for menu choices
         elif choice == '3':
             print(Fore.GREEN + "You are now exiting the App. ")
             break
-        else:
+    else:
             print(Fore.RED + "Invalid option. Please select a Valid option")
 
 
