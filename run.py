@@ -1,7 +1,11 @@
+from colorama import init, Fore, Style
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime, timedelta  # this will calculate a date range
 import re  # supports regular expressions ie search, manipulate and validate.
+
+# initialise colorama
+init(autoreset=True)
 
 # Google Sheets set up
 SCOPE = [
