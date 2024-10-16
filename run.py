@@ -34,7 +34,10 @@ except Exception as e:
 
 
 def validate_data(date, row, oyster_type, amount):
-    """method to validate date, row , oyster type, and amount"""
+    """method to validate date, row , oyster type, and amount for oyster farm mgt
+    
+    Args: 
+        date (str)"""
     print(f"Validating: date={date}, row={row}, oyster_type={oyster_type}, amount={amount}")  # added to test why error messages are not triggering
 
     # validate date
@@ -43,6 +46,7 @@ def validate_data(date, row, oyster_type, amount):
     except ValueError:
         print(Fore.RED + "Invalid date format. Please use YYYY-MM-DD")
         return False
+
 
     # Validate row
     row = row.upper()  #converts the row letters to uppercase. 
@@ -75,9 +79,9 @@ def welcome():
 def main_menu():  # While statements for menu choices
     while True:
         print(Fore.GREEN + "\nMenu Options:")
-        print("1. Data Entry")
-        print("2. Orders")
-        print("3. Exit")
+        print("1. Data Entry (To log laying of oysters on Tressles)")
+        print("2. Orders (To assess what rows are available for harvesting)")
+        print("3. Exit (Do you wish to leave the App)")
         choice = input("Select an option (1-3): ").strip()
 
         if choice == '1':
@@ -100,7 +104,7 @@ def data_entry():   # data entry input field with format examples
              # validate date format immediately
             datetime.strptime(date, '%Y-%m-%d')
         except ValueError:
-            print("Invalid date format. Please use YYYY-MM-DD")
+            print(Fore.RED + "Invalid date format. Please use YYYY-MM-DD")
             continue  #  restart the loop for date entry
 
         #loop until valid row is entered 
@@ -109,7 +113,7 @@ def data_entry():   # data entry input field with format examples
             row = row.upper()  # converts to upper for validation 
             if re.match(r'^[A-Z]\d{2}$', row):
                 break  # Exit loop if valid 
-            print("Invalid row format please use one letter and two digits ie C02")
+            print(Fore.RED + "Invalid row format please use one letter and two digits ie C02")
 
         # loop until valid oyster type entered 
         while True:
@@ -156,7 +160,7 @@ def orders():  # define orders section
             
 
 
-welcome()# start application
+welcome() # start application
 
 
 
