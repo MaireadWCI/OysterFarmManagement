@@ -12,7 +12,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
 
 try:  # exception handling-try block
     CREDS = Credentials.from_service_account_file('creds.json')
@@ -30,7 +30,7 @@ except FileNotFoundError:   # exception handling - except block
 except gspread.exceptions.SpreadsheetNotFound:
     print("Error: Spreadsheet 'Oyster Farm Management App' was not found.")
 except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+    print(Fore.RED + f"An unexpected error occurred: {e}")
 
 
 def validate_data(date, row, oyster_type, amount):
@@ -41,7 +41,7 @@ def validate_data(date, row, oyster_type, amount):
     try:
         datetime.strptime(date, '%Y-%m-%d')
     except ValueError:
-        print("Invalid date format. Please use YYYY-MM-DD")
+        print(Fore.RED + "Invalid date format. Please use YYYY-MM-DD")
         return False
 
     # Validate row
@@ -49,18 +49,18 @@ def validate_data(date, row, oyster_type, amount):
 
 
     if not re.match(r'^[A-Z]\d{2}$', row):
-        print("Invalid row format. Please use a format like C02")
+        print(Fore.RED + "Invalid row format. Please use a format like C02")
         return False
 
     # Validate oyster type
     oyster_type = oyster_type.lower()  # converts data to lower case. 
     if oyster_type not in ['seed', 'half-grown']:
-        print("Invalid oyster type. Please enter 'seed' or 'half-grown'.")
+        print(Fore.RED + "Invalid oyster type. Please enter 'seed' or 'half-grown'.")
         return False
 
     # Validate amount to positive intreger
     if not amount.isdigit() or int(amount) <= 0:
-        print("Invalid amount. Please enter a positive number.")
+        print(Fore.RED + "Invalid amount. Please enter a positive number.")
         return False
 
     return True
@@ -68,7 +68,7 @@ def validate_data(date, row, oyster_type, amount):
 
 # welcome page on initial start up
 def welcome():
-    print("Welcome to your Oyster Farm Management system")
+    print(Fore.GREEN + "Welcome to your Oyster Farm Management system")
     main_menu()
 
 
@@ -78,15 +78,17 @@ def main_menu():  # While statements for menu choices
         print("1. Data Entry")
         print("2. Orders")
         print("3. Exit")
-        choice = input("Select an option (1-3): ")
+        choice = input("Select an option (1-3): ").strip()
 
         if choice == '1':
             data_entry()
         elif choice == '2':
             orders()
         elif choice == '3':
-            print("You are now exiting the App. ")
+            print(Fore.GREEN + "You are now exiting the App. ")
             break
+        else:
+            print(Fore.RED + "Invalid option. Please select a Valid option")
 
 
 def data_entry():   # data entry input field with format examples
