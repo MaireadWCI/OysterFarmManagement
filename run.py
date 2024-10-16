@@ -74,7 +74,7 @@ def welcome():
 
 def main_menu():  # While statements for menu choices
     while True:
-        print("\nMenu Options:")
+        print(Fore.GREEN + "\nMenu Options:")
         print("1. Data Entry")
         print("2. Orders")
         print("3. Exit")
@@ -87,7 +87,7 @@ def main_menu():  # While statements for menu choices
         elif choice == '3':
             print(Fore.GREEN + "You are now exiting the App. ")
             break
-    else:
+        else:
             print(Fore.RED + "Invalid option. Please select a Valid option")
 
 
@@ -116,19 +116,19 @@ def data_entry():   # data entry input field with format examples
             oyster_type = input("Enter type (seed or half-grown)\n").strip().lower()
             if oyster_type in ['seed', 'half-grown']:
                 break  # exit the loop if valid
-            print("Invalid oyster type. Please enter 'seed' or 'half-grown' ")
+            print(Fore.RED + "Invalid oyster type. Please enter 'seed' or 'half-grown' ")
 
         # Loop until a valid amount is entered
         while True:
             amount = input("Enter number of bags\n").strip()
             if amount.isdigit() and int(amount) > 0:
                 break  # exit loop if valid
-            print("Invalid amount. Please enter a positive number.")
+            print(Fore.RED + "Invalid amount. Please enter a positive number.")
 
     # If all data is validated append to google sheets. 
     #if validate_data(date, row, oyster_type, amount): - remove later if not needed
         data_entry_sheet.append_row([date, row, oyster_type, amount])
-        print("Data has been logged successfully.")
+        print(Fore.GREEN + "Data has been logged successfully.")
         break  # loops ends after successful entry  - remove if not needed 
             
 
@@ -145,14 +145,14 @@ def orders():  # define orders section
             end_date = required_date_dt + timedelta(days=15)
 
             ready_oysters = calculated_yield_sheet.get_all_records()
-            print("\nReady Oysters within 15 days of the date entered")
+            print(Fore.GREEN + "\nReady Oysters within 15 days of the date entered")
             for record in ready_oysters:
                 record_date = datetime.strptime(record['Date Ready'], '%Y-%m-%d')
                 if start_date <= record_date <= end_date:
                     print(f"Row: {record['Row']} Date Ready: {record['Date Ready']}")
             break # ends loop after order is processed.
         except ValueError:
-            print("incorrect date format entered. Please try again")
+            print(Fore.RED + "Incorrect date format entered. Please try again")
             
 
 
