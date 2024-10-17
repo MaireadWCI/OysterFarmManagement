@@ -13,15 +13,14 @@ requirements
 
 ![App Display](./oysterfarm.py/assets/heroku_display.png)
 
-
+## Project Goals
 This is a Python App for an Oyster Farm. It is designed to accompany a website for an Oyster farm business. 
 The App is intended for the Business owner  be to able to track rows of trestles, monitor the amount, type, 
 when and where the bags of oysters are places so based on different variables will be ready in a certain time. 
+All through a user-friendly application. 
 
 
-## User Experience Design
-
-### Project Goals
+# User Experience Design
 
 ## User Stories
 As a user of this App:
@@ -99,25 +98,6 @@ Designed in Lucid charts, to give deminstrate the process.
 ### Orders 
 ![Order](./oysterfarm.py/assets/ordersSheet.png)
 
-# Features
-### Welcome Message: 
- Display a welcome message upon opening.
-### Menu Options:
- Three main options - Data Entry and Orders or Exit application. 
-### Data Entry: 
-Input details about oyster bags.
-### Data validation:
-Functions to validate the format of dates and other inputs before logging them to spreadsheet. 
-### Orders: 
-Retrieve information about ready oysters based on user input.
-### Google Sheets Integration: 
-Connects to Google Sheets using gspread and oauth2client.
-### Console Interaction: 
-The application interacts with the user through standard input and output in the terminal.
-### Return loop
-Allows user to clear and enter new data or return to main menu or exit app
-
-
 
 # Technologies Used
 
@@ -142,6 +122,54 @@ Allows user to clear and enter new data or return to main menu or exit app
 *  [Lucid Charts](https://www.lucidchart.com/pages/) Used to understand exception handling. 
 
 
+# Features
+### Welcome Message: 
+ Display a welcome message upon opening.
+### Menu Options:
+ Three main options - Data Entry and Orders or Exit application. 
+### Data Entry: 
+Input details about oyster bags.
+### Data validation:
+Functions to validate the format of dates and other inputs before logging them to spreadsheet. 
+### Orders: 
+Retrieve information about ready oysters based on user input.
+### Google Sheets Integration: 
+Connects to Google Sheets using gspread and oauth2client.
+### Console Interaction: 
+The application interacts with the user through standard input and output in the terminal.
+### Return loop
+Allows user to clear and enter new data or return to main menu or exit app
+
+## Future endeavours
+- Confirm or cancel entries
+- Option to view previously entered data
+
+
+## Welcome 
+
+## Data Entry
+
+## Caluculated yeild 
+
+## Orders
+
+## Successful
+
+## Errors
+
+### gspread
+![gspread issue](./oysterfarm.py/assets/errors/gspread_herohu_issue.png)
+
+  Pip3 > requirements.txt
+
+![spreadsheet issue](./oysterfarm.py/assets/errors/spreedsheet_issue.png)
+
+The variable ‘SPREADSHEET is defined, but later in the code I tried to access in lowercase, changed to all the same case.
+
+### Spelling error
+![spelling issue](./oysterfarm.py/assets/errors/example_of_spelling_error.png)
+
+Line 57 indicates a spelling error that is breaking the code. 
 
 
 ## Testing
@@ -174,37 +202,49 @@ As a user of this App:
 * I would like to get the return dates to be all within the same month as date I enter. 
     * When retriving the harvesting data, the app checks that all returned dates fall within the month of the order date. 
 
+|Feature | Expect | Action | Result |
+|--|--|--|--|
+|  |  | | Pass
+|   |  |  | Pass
+|  |  | | Pass
+|  |  | | Pass
+|  | | | Pass
 
 
-using datetime in python :  https://www.dataquest.io/blog/python-datetime/
 
-spreadsheets and pyton:https://realpython.com/openpyxl-excel-spreadsheets-python/
+
 
 ### Code Validation
 [Pep8ci](https://pep8ci.herokuapp.com/#)
 was used regularly during development to validate the python code for PEP* requirements. 
 
-![PEP8 Code Validation]()
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter1.png)
 
-![PEP8 Code Validation]()
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter2.png)
+
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter3.png)
+
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter4.png)
+
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter5.png)
+
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter6.png)
+
+![PEP8 Code Validation](./oysterfarm.py/Validation/linter7.png)
 
 
-![PEP8 Code Validation]()
-
-![PEP8 Code Validation]()
-
-https://www.diffchecker.com/
-
-##Future endeavours
-- Confirm or cancel entries
-- Option to view previously entered data
 
 ### Manual testing 
 
-![](.png)
-![](.png)
-![](.png)
-![](.png)
+![Data Entry Test](./oysterfarm.py/Validation/manual_test1.png)        Testing the Data enty input.
+
+![Orders Test](./oysterfarm.py/Validation/manual_test2.png)     Testing the Orders retrieval feature. 
+
+![Invalid Entry Test](./oysterfarm.py/Validation/manual_test3.png)     Testing invalid user feedback. 
+
+![Invalid Entry Test 2](./oysterfarm.py/Validation/manual_test4.png)    Second test to improve invalid user feedback. 
+
+
 ![](.png)
 ![](.png)
 ![](.png)
@@ -233,6 +273,25 @@ Deployed through Heroku [Heroku](https://id.heroku.com/)
 7. Add nessesary Config Vars
     - Click Reveal Config Vars and input the key value pair for Credentials
     
+
+
+## Credits
+
+https://www.diffchecker.com/
+
+using datetime in python :  https://www.dataquest.io/blog/python-datetime/
+
+spreadsheets and pyton:https://realpython.com/openpyxl-excel-spreadsheets-python/
+
+using datetime in python :  https://www.dataquest.io/blog/python-datetime/
+
+https://stackoverflow.com/questions/9846683/how-to-install-colorama-in-python
+
+https://www.geeksforgeeks.org/introduction-to-python-colorama/
+
+https://github.com/josswe26/macro-calculator/blob/main/README.md?plain=1
+
+https://stackoverflow.com/questions/62358444/how-to-format-a-datetime-so-google-sheets-recognise-the-value-as-date-time
 
 
 
