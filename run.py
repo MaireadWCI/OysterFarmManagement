@@ -34,11 +34,8 @@ except Exception as e:
 
 
 def validate_data(date, row, oyster_type, amount):
-    """method to validate date, row , oyster type, and amount for oyster farm mgt
-    
-    Args: 
-        date (str)"""
-    print(f"Validating: date={date}, row={row}, oyster_type={oyster_type}, amount={amount}")  # added to test why error messages are not triggering
+    """method to validate date, row , oyster type, and amount""" 
+    print(f"Validating: date={date}, row={row}, oyster_type={oyster_type}, amount={amount}")
 
     # validate date
     try:
@@ -47,17 +44,15 @@ def validate_data(date, row, oyster_type, amount):
         print(Fore.RED + "Invalid date format. Please use YYYY-MM-DD")
         return False
 
-
     # Validate row
-    row = row.upper()  #converts the row letters to uppercase. 
-
+    row = row.upper()  # converts the row letters to uppercase.
 
     if not re.match(r'^[A-Z]\d{2}$', row):
         print(Fore.RED + "Invalid row format. Please use a format like C02")
         return False
 
     # Validate oyster type
-    oyster_type = oyster_type.lower()  # converts data to lower case. 
+    oyster_type = oyster_type.lower()  # converts data to lower case.
     if oyster_type not in ['seed', 'half-grown']:
         print(Fore.RED + "Invalid oyster type. Please enter 'seed' or 'half-grown'.")
         return False
@@ -96,31 +91,32 @@ def main_menu():  # While statements for menu choices
 
 
 def data_entry():   # data entry input field with format examples
-    """Loops added to validation process to halt until correct data is entered"""
+    """Loops until correct data entered"""
 
     while True:
-        date = input("Enter date: (YYYY-MM-DD)\n").strip()  # prompt for date entry
-        try: 
-             # validate date format immediately
+        # prompt for date entry
+        date = input("Enter date: (YYYY-MM-DD)\n").strip()
+        try:
+            # validate date format immediately
             datetime.strptime(date, '%Y-%m-%d')
         except ValueError:
             print(Fore.RED + "Invalid date format. Please use YYYY-MM-DD")
-            continue  #  restart the loop for date entry
+            continue  # restart the loop for date entry
 
-        #loop until valid row is entered 
+        # loop until valid row is entered
         while True:
             row = input("Enter row: (ie C04- one letter and two digits)\n").strip()
-            row = row.upper()  # converts to upper for validation 
+            row = row.upper()  # converts to upper for validation
             if re.match(r'^[A-Z]\d{2}$', row):
-                break  # Exit loop if valid 
+                break  # Exit loop if valid
             print(Fore.RED + "Invalid row format please use one letter and two digits ie C02")
 
-        # loop until valid oyster type entered 
+        # loop until valid oyster type entered
         while True:
             oyster_type = input("Enter type (seed or half-grown)\n").strip().lower()
             if oyster_type in ['seed', 'half-grown']:
                 break  # exit the loop if valid
-            print(Fore.RED + "Invalid oyster type. Please enter 'seed' or 'half-grown' ")
+            print(Fore.RED + "Invalid type. Please enter 'seed' or 'half-grown'")
 
         # Loop until a valid amount is entered
         while True:
@@ -129,20 +125,20 @@ def data_entry():   # data entry input field with format examples
                 break  # exit loop if valid
             print(Fore.RED + "Invalid amount. Please enter a positive number.")
 
-    # If all data is validated append to google sheets. 
-    #if validate_data(date, row, oyster_type, amount): - remove later if not needed
+    # If all data is validated append to google sheets.
         data_entry_sheet.append_row([date, row, oyster_type, amount])
         print(Fore.GREEN + "Data has been logged successfully.")
-        break  # loops ends after successful entry  - remove if not needed 
-            
+        break  # loops ends after successful entry  - remove if not needed
+
 
 def orders():  # define orders section
-    """Method to select order date, validate and to retieve 15 days on either side of date also"""
+    """Method to select order date, validate and to retieve
+     15 days on either side of date also"""
 
     while True:  # exception handling
         required_date = input("Enter the required date (YYYY-MM-DD):").strip()
 
-         # if validate_date(required_date): #data validation
+        # if validate_date(required_date): #data validation
         try:
             required_date_dt = datetime.strptime(required_date, '%Y-%m-%d')
             start_date = required_date_dt - timedelta(days=15)
@@ -150,17 +146,24 @@ def orders():  # define orders section
 
             ready_oysters = calculated_yield_sheet.get_all_records()
             print(Fore.GREEN + "\nReady Oysters within 15 days of the date entered")
+
             for record in ready_oysters:
-                record_date = datetime.strptime(record['Date Ready'], '%Y-%m-%d')
-                if start_date <= record_date <= end_date:
-                    print(f"Row: {record['Row']} Date Ready: {record['Date Ready']}")
-            break # ends loop after order is processed.
+                date_ready_value = record['Date Ready']
+            if not isinstance(date_ready_value, str):
+                try:
+                    record_date = datetime.strptime(record['Date Ready'], '%Y-%m-%d')
+                    if start_date <= record_date <= end_date:
+                        print(f"Row: {record['Row']} Date Ready: {record['Date Ready']}")
+                except ValueError as ve:
+                    print(Fore.RED + f"Error parsing date for row {record['Row']}: {ve}")
+            break  # ends loop after order is processed.
         except ValueError:
             print(Fore.RED + "Incorrect date format entered. Please try again")
             
 
 
 welcome() # start application
+
 
 
 
