@@ -11,7 +11,7 @@ requirements
 
 #Oyster Farm Management process App
 
-![App Display](./oysterfarm.py/assets/heroku_display.png)
+![App Display](./oysterfarm.py/assets/pics/heroku_display.png)
 
 ## Project Goals
 This is a Python App for an Oyster Farm. It is designed to accompany a website for an Oyster farm business. 
@@ -90,13 +90,13 @@ Designed in Lucid charts, to give deminstrate the process.
 
 ## Google sheets 
 ### Data Entry
-![Data Entry](./oysterfarm.py/assets/farmMgtSheet.png)
+![Data Entry](./oysterfarm.py/assets/pics/data_entry.png)
 
 ### Calculated Yeild
-![Calculated Yeild](./oysterfarm.py/assets/calYeild.png) 
+![Calculated Yeild](./oysterfarm.py/assets/pics/calc_sheet.png) 
 
 ### Orders 
-![Order](./oysterfarm.py/assets/ordersSheet.png)
+![Order](./oysterfarm.py/assets/pics/ordersSheet.png)
 
 
 # Technologies Used
@@ -230,13 +230,15 @@ was used regularly during development to validate the python code for PEP* requi
 
 ![PEP8 Code Validation](./oysterfarm.py/Validation/linter6.png)
 
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter7.png)
+![PEP8 Code Validation](./oysterfarm.py/Validation/line_too_long.png)
 
 
 
 ### Manual testing 
 
-![Data Entry Test](./oysterfarm.py/Validation/manual_test1.png)        Testing the Data enty input.
+Testing the Data enty input.
+
+![Data Entry Test](./oysterfarm.py/Validation/manual_test1.png)        
 
 ![Orders Test](./oysterfarm.py/Validation/manual_test2.png)     Testing the Orders retrieval feature. 
 
@@ -267,12 +269,24 @@ Deployed through Heroku [Heroku](https://id.heroku.com/)
 4. Create a new application
     - from dashbord click "create new app"
 5. Configure your app
-   -Enter a unique name for your application and select a region before clicking on "Create app". 
+   - Enter a unique name for your application and select a region before clicking on "Create app". 
 6. Set up Configuration variables
     - select settings tab and click Config Vars 
 7. Add nessesary Config Vars
     - Click Reveal Config Vars and input the key value pair for Credentials
-    
+8. Specify the Port Confg
+    - Aded second confg var with Key: PORT and VALUE: '8000'
+9. Confg Buildpacks
+    - Navigate to buildpacks select add builpack
+10. Select Python buildpack
+    - Select python and save
+11. Deployment method
+    - Select Deploy tab and select GitHub, click connect to GitHub. 
+12. Connect to GitHub
+    - search for your repository in the connect to github section and click connect next to it.
+13. Deployment preference
+    - Enable automatic deploys. 
+
 
 
 ## Credits
@@ -292,6 +306,12 @@ https://www.geeksforgeeks.org/introduction-to-python-colorama/
 https://github.com/josswe26/macro-calculator/blob/main/README.md?plain=1
 
 https://stackoverflow.com/questions/62358444/how-to-format-a-datetime-so-google-sheets-recognise-the-value-as-date-time
+
+Marcel my amazing Mentor 
+
+Thomas from Tutor support
+
+Lewis my Facilitator
 
 
 

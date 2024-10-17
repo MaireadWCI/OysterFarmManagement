@@ -34,8 +34,10 @@ except Exception as e:
 
 
 def validate_data(date, row, oyster_type, amount):
-    """method to validate date, row , oyster type, and amount""" 
-    print(f"Validating: date={date}, row={row}, oyster_type={oyster_type}, amount={amount}")
+    """method to validate date, row , oyster type, and amount"""
+    print(
+        f"Validating: date={date}, row={row}," +
+        "oyster_type={oyster_type}, amount={amount}")
 
     # validate date
     try:
@@ -54,7 +56,9 @@ def validate_data(date, row, oyster_type, amount):
     # Validate oyster type
     oyster_type = oyster_type.lower()  # converts data to lower case.
     if oyster_type not in ['seed', 'half-grown']:
-        print(Fore.RED + "Invalid oyster type. Please enter 'seed' or 'half-grown'.")
+        print(
+            Fore.RED + "Invalid oyster type." +
+            "Please enter 'seed' or 'half-grown'.")
         return False
 
     # Validate amount to positive intreger
@@ -73,10 +77,11 @@ def welcome():
 
 def main_menu():  # While statements for menu choices
     while True:
-        print(Fore.GREEN + "\nMenu Options:")
+        print(Fore.GREEN + "\nMenu Options:\n")
         print("1. Data Entry (To log laying of oysters on Tressles)")
         print("2. Orders (To assess what rows are available for harvesting)")
-        print("3. Exit (Do you wish to leave the App)")
+        print("3. Exit (Do you wish to leave the App)\n")
+
         choice = input("Select an option (1-3): ").strip()
 
         if choice == '1':
@@ -105,18 +110,23 @@ def data_entry():   # data entry input field with format examples
 
         # loop until valid row is entered
         while True:
-            row = input("Enter row: (ie C04- one letter and two digits)\n").strip()
+            row = input(
+                "Enter row: (ie C04- one letter and two digits)\n").strip()
             row = row.upper()  # converts to upper for validation
             if re.match(r'^[A-Z]\d{2}$', row):
                 break  # Exit loop if valid
-            print(Fore.RED + "Invalid row format please use one letter and two digits ie C02")
+            print(
+                Fore.RED + "Invalid row format" +
+                "please use one letter and two digits ie C02")
 
         # loop until valid oyster type entered
         while True:
-            oyster_type = input("Enter type (seed or half-grown)\n").strip().lower()
+            oyster_type = input(
+                "Enter type (seed or half-grown)\n").strip().lower()
             if oyster_type in ['seed', 'half-grown']:
                 break  # exit the loop if valid
-            print(Fore.RED + "Invalid type. Please enter 'seed' or 'half-grown'")
+            print(
+                Fore.RED + "Invalid type. Please enter 'seed' or 'half-grown'")
 
         # Loop until a valid amount is entered
         while True:
@@ -145,21 +155,24 @@ def orders():  # define orders section
             end_date = required_date_dt + timedelta(days=15)
 
             ready_oysters = calculated_yield_sheet.get_all_records()
-            print(Fore.GREEN + "\nReady Oysters within 15 days of the date entered")
+            print(
+                Fore.GREEN + "\nReady Oysters" +
+                "within 15 days of the date entered")
 
             for record in ready_oysters:
                 date_ready_value = record['Date Ready']
-            if not isinstance(date_ready_value, str):
-                try:
-                    record_date = datetime.strptime(record['Date Ready'], '%Y-%m-%d')
-                    if start_date <= record_date <= end_date:
-                        print(f"Row: {record['Row']} Date Ready: {record['Date Ready']}")
-                except ValueError as ve:
-                    print(Fore.RED + f"Error parsing date for row {record['Row']}: {ve}")
+
+                if not isinstance(date_ready_value, str):
+                    continue
+                record_date = datetime.strptime(
+                    record['Date Ready'], '%Y-%m-%d')
+                if start_date <= record_date <= end_date:
+                    print(
+                        f"Row: {record['Row']}" +
+                        "Date Ready: {record['Date Ready']}")
             break  # ends loop after order is processed.
         except ValueError:
             print(Fore.RED + "Incorrect date format entered. Please try again")
-            
 
 
 welcome() # start application
