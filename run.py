@@ -158,12 +158,13 @@ def orders():  # define orders section
             print(
                 Fore.GREEN + "\nReady Oysters" +
                 "within 15 days of the date entered")
+           # print(ready_oysters)  #debugging 
 
             for record in ready_oysters:
                 date_ready_value = record['Date Ready']
 
-                if not isinstance(date_ready_value, str):
-                    continue
+              #  if not isinstance(date_ready_value, str):
+                  #  continue
                 record_date = datetime.strptime(
                     record['Date Ready'], '%Y-%m-%d')
                 if start_date <= record_date <= end_date:

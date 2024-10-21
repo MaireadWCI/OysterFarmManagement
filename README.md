@@ -1,20 +1,11 @@
 
 
-
-project 3 template added 
-gspread 
-auth
-sheets
-added worksheet 
-gitnore
-requirements
-
-#Oyster Farm Management process App
+# Oyster Farm Management process App
 
 ![App Display](./oysterfarm.py/assets/pics/heroku_display.png)
 
 ## Project Goals
-This is a Python App for an Oyster Farm. It is designed to accompany a website for an Oyster farm business. 
+This is a Python App for an Oyster Farm. It is designed as a prototype to pitch to accompany a website for an Oyster farm business. 
 The App is intended for the Business owner  be to able to track rows of trestles, monitor the amount, type, 
 when and where the bags of oysters are places so based on different variables will be ready in a certain time. 
 All through a user-friendly application. 
@@ -62,7 +53,7 @@ The data model interact with Google Sheets to manage oyster farm data
 2. Attributes: 
     * Date - laid or requested is stored in the following format (YYYY-MM-DD)
     * Row - Giving a unique identifier, one letter and two digits (C09)
-    * Oyster type - If oyster laid is seed or half grown (the google sheets adds 6 months for half grown and 18mths for seed)
+    * Oyster type - If oyster laid is seed or half grown (the google sheets adds 9 months for half grown and 18mths for seed)
     * amount -  No of Oyster Bags laid
 
 3. Interactions: (with google sheets)
@@ -138,24 +129,37 @@ Connects to Google Sheets using gspread and oauth2client.
 ### Console Interaction: 
 The application interacts with the user through standard input and output in the terminal.
 ### Return loop
-Allows user to clear and enter new data or return to main menu or exit app
+Allows user to enter new data or return to main menu or exit app
 
 ## Future endeavours
 - Confirm or cancel entries
 - Option to view previously entered data
+- Cancel at anytime option. 
 
 
 ## Welcome 
 
+![Welcome](./oysterfarm.py/assets/pics/welcome.png)
+
 ## Data Entry
+
+![Data Entry](./oysterfarm.py/assets/pics/enter_data.png)
 
 ## Caluculated yeild 
 
+![Calculated Yeid](./)
+
 ## Orders
+
+![Orders](./oysterfarm.py/assets/pics/orders.png)
 
 ## Successful
 
+![Successful](./oysterfarm.py/assets/pics/successful.png)
+
 ## Errors
+
+![Errors](./oysterfarm.py/assets/pics/errors.png)
 
 ### gspread
 ![gspread issue](./oysterfarm.py/assets/errors/gspread_herohu_issue.png)
@@ -202,13 +206,16 @@ As a user of this App:
 * I would like to get the return dates to be all within the same month as date I enter. 
     * When retriving the harvesting data, the app checks that all returned dates fall within the month of the order date. 
 
-|Feature | Expect | Action | Result |
-|--|--|--|--|
-|  |  | | Pass
-|   |  |  | Pass
-|  |  | | Pass
-|  |  | | Pass
-|  | | | Pass
+| Feature                | Expect                                                                  | Result |
+|-----------------------|-------------------------------------------------------------------------|--------|
+| Welcome Message       | Display a welcome message upon opening                                   | Pass   |
+| Menu Options          | Three main options - Data Entry and Orders or Exit application.        | Pass   |
+| Data Entry            | Input details about oyster bags.                                        | Pass   |
+| Data Validation       | Functions to validate the format of dates and other inputs before logging them to spreadsheet. | Pass   |
+| Orders                | Retrieve information about ready oysters based on user input.          | Pass   |
+| Google Sheets integration | Connects to Google Sheets using gspread and oauth2client              | Pass   |
+| Console interaction    | The application interacts with the user through standard input and output in the terminal. | Pass   |
+| Return loop           | Allows user to enter new data or return to main menu or exit app      | Pass   |
 
 
 
@@ -218,19 +225,9 @@ As a user of this App:
 [Pep8ci](https://pep8ci.herokuapp.com/#)
 was used regularly during development to validate the python code for PEP* requirements. 
 
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter1.png)
-
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter2.png)
-
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter3.png)
-
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter4.png)
-
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter5.png)
-
-![PEP8 Code Validation](./oysterfarm.py/Validation/linter6.png)
-
 ![PEP8 Code Validation](./oysterfarm.py/Validation/line_too_long.png)
+
+![PEP8 Code Validation](./oysterfarm.py/assets/pics/errors_fixed.png)
 
 
 
