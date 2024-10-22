@@ -157,7 +157,7 @@ def orders():  # define orders section
             ready_oysters = calculated_yield_sheet.get_all_records()
             print(
                 Fore.GREEN + "\nReady Oysters" +
-                "within 15 days of the date entered")
+                " within 15 days of the date entered")
            # print(ready_oysters)  #debugging 
 
             for record in ready_oysters:
@@ -170,7 +170,7 @@ def orders():  # define orders section
                 if start_date <= record_date <= end_date:
                     print(
                         f"Row: {record['Row']}" +
-                        "Date Ready: {record['Date Ready']}")
+                        f"  Date Ready: {record['Date Ready']}")
             break  # ends loop after order is processed.
         except ValueError:
             print(Fore.RED + "Incorrect date format entered. Please try again")
