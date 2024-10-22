@@ -147,7 +147,7 @@ Allows user to enter new data or return to main menu or exit app
 
 ## Caluculated yeild 
 
-![Calculated Yeid](./)
+![Calculated Yeid](./oysterfarm.py/assets/pics/calc.yield%20successful.png)
 
 ## Orders
 
@@ -243,11 +243,6 @@ Testing the Data enty input.
 
 ![Invalid Entry Test 2](./oysterfarm.py/Validation/manual_test4.png)    Second test to improve invalid user feedback. 
 
-
-![](.png)
-![](.png)
-![](.png)
-![](.png)
 
 
 ## Deployment

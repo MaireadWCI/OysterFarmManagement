@@ -158,19 +158,30 @@ def orders():  # define orders section
             print(
                 Fore.GREEN + "\nReady Oysters" +
                 " within 15 days of the date entered")
-           # print(ready_oysters)  #debugging 
 
+            found_ready_oysters = False  # to track if oysters are found
+           
             for record in ready_oysters:
                 date_ready_value = record['Date Ready']
 
-              #  if not isinstance(date_ready_value, str):
-                  #  continue
+                # if not isinstance(date_ready_value, str):
+                # continue
+
                 record_date = datetime.strptime(
                     record['Date Ready'], '%Y-%m-%d')
+
                 if start_date <= record_date <= end_date:
                     print(
                         f"Row: {record['Row']}" +
                         f"  Date Ready: {record['Date Ready']}")
+
+                    found_ready_oysters = True  # flag to true if record found
+
+            if not found_ready_oysters:
+                print(
+                    Fore.RED +
+                    "No oysters ready within the specified date range")
+
             break  # ends loop after order is processed.
         except ValueError:
             print(Fore.RED + "Incorrect date format entered. Please try again")
